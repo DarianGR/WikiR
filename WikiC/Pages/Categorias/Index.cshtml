@@ -1,0 +1,94 @@
+﻿@page
+@model WikiC.Pages.Categorias.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1>Categorías</h1>
+</div>
+
+<p>
+    <a asp-page="Create" class="btn">Create New</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr bgcolor="#191919">
+                <th class="nombre text-center">
+                    @Html.DisplayNameFor(model => model.Categoria[0].NombreCat)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Categoria)
+            {
+                <tr>
+                    <td class="results">
+                        @Html.DisplayFor(modelItem => item.NombreCat)
+                    </td>
+                    <td>
+                        <h7>
+                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        </h7>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style type="text/css">
+    body {
+        color: #f5f5f5;
+        background: radial-gradient(circle, rgba(199,199,199,1) 0%, rgba(90,89,89,1) 45%, rgba(0,0,0,1) 100%);
+        font-family: fantasy;
+    }
+
+    h1 {
+        text-shadow: black 0.1em 0.1em 0.2em;
+    }
+
+    .table {
+        border: black 4px solid;
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h7 {
+        color: black;
+        font: condensed 100% sans-serif;
+        font-weight: bold;
+    }
+
+    .nombre {
+        color: #bababa;
+        text-shadow: black 0.1em 0.1em 0.2em;
+        font: condensed 120% fantasy;
+    }
+
+    .results {
+        color: black;
+        text-shadow: #bababa 0.1em 0.1em 0.2em;
+    }
+
+    a {
+        color: black;
+    }
+
+    .btn {
+        background-image: -webkit-linear-gradient(top, #191919, #bababa);
+        text-shadow: 0 0 0.1em #bababa;
+        margin-left: 15%;
+    }
+
+        .btn:hover {
+            background-image: -webkit-linear-gradient(top, #bababa, #191919);
+        }
+</style>
