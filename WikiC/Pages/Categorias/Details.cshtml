@@ -5,21 +5,66 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="text-center">
+    <h1>Details Categoría</h1>
+</div>
 
-<div>
-    <h4>Categoria</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Categoria.NombreCat)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Categoria.NombreCat)
-        </dd>
-    </dl>
+<div class="cont">
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h5 class="card-subtitle mb-2 text-center">@Html.DisplayNameFor(model => model.Categoria.NombreCat)</h5>
+                <h7 class="text-center">@Html.DisplayFor(model => model.Categoria.NombreCat)</h7>
+            </li>
+        </ul>
+    </div>
+    <br>
+    </br>
 </div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Categoria?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+
+<div class="center">
+    <a asp-page="./Edit" asp-route-id="@Model.Categoria?.Id" class="btn">Edit</a>
+    <a asp-page="./Index" class="btn">Back to List</a>
 </div>
+
+<style type="text/css">
+    body {
+        color: #f5f5f5;
+        background: radial-gradient(circle, rgba(199,199,199,1) 0%, rgba(90,89,89,1) 45%, rgba(0,0,0,1) 100%);
+        font-family: fantasy;
+    }
+    h1 {
+        text-shadow: black 0.1em 0.1em 0.2em;
+    }
+    h5{
+        background: #303030;
+        color: #f5f5f5;
+        font-size: 100%;
+    }
+    h7 {
+        font: condensed 110% sans-serif;
+    }
+    .cont{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .btn {
+        margin-top: 70px;
+        margin-left: 25px;
+        margin-right: 25px;
+        background-image: -webkit-linear-gradient(top, #191919, #f5f5f5);
+        border-radius: 5px;
+        text-shadow: 0 0 0.1em #bababa;
+    }
+    .btn:hover {
+        background-image: -webkit-linear-gradient(top, #f5f5f5, #191919);
+    }
+    .card{
+        width: 33%;
+        margin-top: 15px;
+    }
+    .center{
+        text-align: center;
+    }
+</style>
